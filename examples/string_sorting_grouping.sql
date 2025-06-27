@@ -1,0 +1,67 @@
+SELECT F_NAME, L_NAME
+FROM EMPLOYEES
+WHERE ADDRESS LIKE '%Elgin,IL%';
+
+SELECT *
+FROM EMPLOYEES
+WHERE (SALARY BETWEEN 60000 AND 70000) AND DEP_ID = 5;
+
+SELECT F_NAME, L_NAME, DEP_ID 
+FROM EMPLOYEES
+ORDER BY DEP_ID;
+
+SELECT F_NAME, L_NAME, DEP_ID 
+FROM EMPLOYEES
+ORDER BY DEP_ID DESC, L_NAME DESC;
+
+SELECT DEP_ID, COUNT(*)
+FROM EMPLOYEES
+GROUP BY DEP_ID;
+
+SELECT DEP_ID, COUNT(*), AVG(SALARY)
+FROM EMPLOYEES
+GROUP BY DEP_ID;
+
+SELECT DEP_ID, COUNT(*) AS "NUM_EMPLOYEES", AVG(SALARY) AS "AVG_SALARY"
+FROM EMPLOYEES
+GROUP BY DEP_ID;
+
+SELECT DEP_ID, COUNT(*) AS "NUM_EMPLOYEES", AVG(SALARY) AS "AVG_SALARY"
+FROM EMPLOYEES
+GROUP BY DEP_ID
+ORDER BY AVG_SALARY;
+
+SELECT DEP_ID, COUNT(*) AS "NUM_EMPLOYEES", AVG(SALARY) AS "AVG_SALARY"
+FROM EMPLOYEES
+GROUP BY DEP_ID
+HAVING count(*) < 4
+ORDER BY AVG_SALARY;
+
+--Retrieve the list of all employees, first and last names, whose first names start with ‘S’.
+
+SELECT F_NAME, L_NAME
+FROM EMPLOYEES
+WHERE F_NAME LIKE 'S%';
+
+--Arrange all the records of the EMPLOYEES table in ascending order of the date of birth.
+
+SELECT *
+FROM EMPLOYEES
+ORDER BY B_DATE;
+
+--Group the records in terms of the department IDs and filter them of ones that have average salary more than or equal to 60000. Display the department ID and the average salary.
+
+SELECT DEP_ID, AVG(SALARY)
+FROM EMPLOYEES
+GROUP BY DEP_ID
+HAVING AVG(SALARY) >= 60000;
+For the problem above, sort the results for each group in descending order of average salary.
+
+
+SELECT DEP_ID, AVG(SALARY)
+FROM EMPLOYEES
+GROUP BY DEP_ID
+HAVING AVG(SALARY) >= 60000
+ORDER BY AVG(SALARY) DESC;
+
+
