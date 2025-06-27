@@ -55,7 +55,8 @@ SELECT DEP_ID, AVG(SALARY)
 FROM EMPLOYEES
 GROUP BY DEP_ID
 HAVING AVG(SALARY) >= 60000;
-For the problem above, sort the results for each group in descending order of average salary.
+
+--For the problem above, sort the results for each group in descending order of average salary.
 
 
 SELECT DEP_ID, AVG(SALARY)
